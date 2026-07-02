@@ -24,7 +24,7 @@ export function SearchProfiles({ profiles, placeholder = "Buscar por nome ou @" 
     return profiles.filter((profile) => {
       const fullName = `${profile.firstName} ${profile.lastName}`.toLowerCase();
 
-      return fullName.includes(normalized) || profile.username.includes(normalized);
+      return fullName.includes(normalized) || profile.username.toLowerCase().includes(normalized);
     });
   }, [profiles, query]);
 

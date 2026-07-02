@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Avatar } from "@/components/avatar";
 import { FollowButton } from "@/components/follow-button";
+import { FollowStats } from "@/components/follow-stats";
 import type { Profile } from "@/lib/types";
 
 type ProfileCardProps = {
@@ -32,15 +33,10 @@ export function ProfileCard({ profile, showFollow = true }: ProfileCardProps) {
         </Link>
       </div>
       <div className="mt-4 flex items-center justify-between gap-3">
-        <div className="flex gap-4 text-sm text-zinc-600">
-          <span>
-            <strong className="text-zinc-950">{profile.followers}</strong> seguidores
-          </span>
-          <span>
-            <strong className="text-zinc-950">{profile.following}</strong> seguindo
-          </span>
+        <div className="min-w-0 flex-1 [&>div]:mt-0 [&>div]:grid-cols-2 [&_a]:px-2 [&_a]:py-2 [&_p:first-child]:text-base">
+          <FollowStats profileUserId={profile.userId} basePath={`/@${profile.username}`} />
         </div>
-        {showFollow ? <FollowButton /> : null}
+        {showFollow ? <FollowButton targetUserId={profile.userId} /> : null}
       </div>
     </article>
   );

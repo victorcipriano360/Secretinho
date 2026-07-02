@@ -37,7 +37,7 @@ export default function LoginPage() {
           Ver perfil de exemplo
         </Link>
         <p className="text-center text-sm text-zinc-600">
-          Nao tem conta?{" "}
+          Não tem conta?{" "}
           <Link href="/register" className="font-semibold text-rose-700">
             Criar cadastro
           </Link>

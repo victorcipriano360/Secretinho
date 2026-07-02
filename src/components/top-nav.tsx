@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { MessageCircleHeart } from "lucide-react";
 
+import { NotificationLink } from "@/components/notification-link";
+
 export function TopNav() {
   return (
     <header className="sticky top-0 z-10 border-b border-black/10 bg-white/90 backdrop-blur">
@@ -13,7 +15,7 @@ export function TopNav() {
         </Link>
         <nav className="hidden items-center gap-2 md:flex">
           <Link className="rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100" href="/">
-            Inicio
+            Início
           </Link>
           <Link className="rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100" href="/social">
             Socializar
@@ -21,6 +23,7 @@ export function TopNav() {
           <Link className="rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100" href="/messages">
             Mensagens
           </Link>
+          <NotificationLink />
           <Link className="rounded-md px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100" href="/profile">
             Perfil
           </Link>

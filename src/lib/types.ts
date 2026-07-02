@@ -12,9 +12,13 @@ export type Profile = {
 
 export type AnonymousMessage = {
   id: string;
+  questionId: string;
   receiverUserId: string;
+  requesterUserId: string;
   messageText: string;
   createdAt: string;
+  expiresAt: string;
+  reactions?: MessageReaction[];
   answer?: {
     id: string;
     answerText: string;
@@ -22,9 +26,24 @@ export type AnonymousMessage = {
   };
 };
 
-export type ApiResult<T = unknown> = {
-  ok: boolean;
-  data?: T;
-  error?: string;
-  notPersisted?: boolean;
+export type FollowRelationship = {
+  followerUserId: string;
+  followingUserId: string;
+  createdAt: string;
+};
+
+export type MessageReaction = {
+  userId: string;
+  type: "up" | "down";
+  createdAt: string;
+};
+
+export type LocalNotification = {
+  id: string;
+  type: "question_received" | "question_answered" | "question_reacted";
+  title: string;
+  body: string;
+  createdAt: string;
+  href: string;
+  read: boolean;
 };

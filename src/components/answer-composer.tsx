@@ -3,7 +3,11 @@
 import { Reply } from "lucide-react";
 import { useState } from "react";
 
-export function AnswerComposer() {
+type AnswerComposerProps = {
+  onAnswer: (answerText: string) => void;
+};
+
+export function AnswerComposer({ onAnswer }: AnswerComposerProps) {
   const [answer, setAnswer] = useState("");
   const [sent, setSent] = useState(false);
 
@@ -15,7 +19,9 @@ export function AnswerComposer() {
         if (!answer.trim()) {
           return;
         }
+        onAnswer(answer);
         setSent(true);
+        setAnswer("");
       }}
     >
       <textarea
@@ -26,7 +32,7 @@ export function AnswerComposer() {
         }}
         maxLength={500}
         rows={3}
-        placeholder="Responder uma unica vez..."
+        placeholder="Responder uma única vez..."
         className="w-full resize-none rounded-md border border-black/10 bg-zinc-50 p-3 text-sm outline-none transition focus:border-rose-500 focus:bg-white"
       />
       <div className="mt-3 flex items-center justify-between">
@@ -39,7 +45,7 @@ export function AnswerComposer() {
           Responder
         </button>
       </div>
-      {sent ? <p className="mt-2 text-sm font-medium text-emerald-700">Resposta simulada salva.</p> : null}
+      {sent ? <p className="mt-2 text-sm font-medium text-emerald-700">Resposta salva.</p> : null}
     </form>
   );
 }

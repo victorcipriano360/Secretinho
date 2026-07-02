@@ -1,11 +1,11 @@
 # Secretinho
 
-Previa visual de uma rede social de mensagens anonimas.
+Prévia visual de uma rede social de mensagens anônimas.
 
 ## O que existe agora
 
 - App Next.js com React e Tailwind.
-- Telas de inicio, socializar, mensagens, perfil, ajustes, login, cadastro e perfil publico em `/@usuario`.
+- Telas de início, socializar, mensagens, perfil, ajustes, login, cadastro e perfil público em `/@usuario`.
 - Dados de exemplo para navegar sem banco de dados.
 - Botao para entrar sem login.
 - Sem Prisma, sem banco, sem auth real e sem variaveis obrigatorias.
@@ -29,7 +29,7 @@ Configure como projeto Next.js:
 - Build Command: `npm run build`
 - Output Directory: deixe vazio
 
-Nao precisa configurar banco nem variaveis de ambiente por enquanto.
+Não precisa configurar banco nem variáveis de ambiente por enquanto.
 
 ## Depois
 

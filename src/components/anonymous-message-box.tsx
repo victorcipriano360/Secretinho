@@ -3,9 +3,16 @@
 import { Send } from "lucide-react";
 import { useState } from "react";
 
-export function AnonymousMessageBox() {
+import { useLocalMessages } from "@/lib/use-local-messages";
+
+type AnonymousMessageBoxProps = {
+  receiverUserId: string;
+};
+
+export function AnonymousMessageBox({ receiverUserId }: AnonymousMessageBoxProps) {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
+  const { sendMessage } = useLocalMessages(receiverUserId);
 
   return (
     <form
@@ -15,12 +22,13 @@ export function AnonymousMessageBox() {
         if (!message.trim()) {
           return;
         }
+        sendMessage(message);
         setSent(true);
         setMessage("");
       }}
     >
       <label className="text-sm font-semibold text-zinc-950" htmlFor="anonymous-message">
-        Enviar mensagem anonima
+        Enviar mensagem anônima
       </label>
       <textarea
         id="anonymous-message"
@@ -31,7 +39,7 @@ export function AnonymousMessageBox() {
         }}
         maxLength={500}
         rows={4}
-        placeholder="Escreva algo sem revelar quem voce e..."
+        placeholder="Escreva algo sem revelar quem você é..."
         className="mt-3 w-full resize-none rounded-md border border-black/10 bg-zinc-50 p-3 text-sm outline-none transition focus:border-rose-500 focus:bg-white"
       />
       <div className="mt-3 flex items-center justify-between gap-3">
@@ -44,7 +52,7 @@ export function AnonymousMessageBox() {
           Enviar
         </button>
       </div>
-      {sent ? <p className="mt-3 text-sm font-medium text-emerald-700">Mensagem simulada enviada.</p> : null}
+      {sent ? <p className="mt-3 text-sm font-medium text-emerald-700">Mensagem enviada para este perfil.</p> : null}
     </form>
   );
 }

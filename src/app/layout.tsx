@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Secretinho",
-  description: "Rede social de mensagens anonimas."
+  description: "Rede social de mensagens anônimas."
 };
 
 export default function RootLayout({

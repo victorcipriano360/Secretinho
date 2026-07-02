@@ -1,45 +1,45 @@
-import type { AnonymousMessage, Profile } from "@/lib/types";
+import type { Profile } from "@/lib/types";
 
 export const profiles: Profile[] = [
   {
     id: "profile_victor",
     userId: "user_victor",
-    firstName: "Victor",
+    firstName: "VictorTeste01",
     lastName: "Silva",
-    username: "victor",
-    bio: "Perguntas anonimas, respostas sinceras e sem bagunca.",
-    followers: 128,
-    following: 42
+    username: "VictorTeste01",
+    bio: "Perguntas anônimas, respostas sinceras e sem bagunça.",
+    followers: 0,
+    following: 0
   },
   {
     id: "profile_lia",
     userId: "user_lia",
-    firstName: "Lia",
+    firstName: "LiaTeste02",
     lastName: "Marques",
-    username: "lia",
+    username: "LiaTeste02",
     bio: "Cafe, musica e opinioes fortes sobre filmes.",
-    followers: 304,
-    following: 181
+    followers: 0,
+    following: 0
   },
   {
     id: "profile_caio",
     userId: "user_caio",
-    firstName: "Caio",
+    firstName: "CaioTeste03",
     lastName: "Nunes",
-    username: "caion",
-    bio: "Abrindo espaco para perguntas que ninguem faz em voz alta.",
-    followers: 88,
-    following: 95
+    username: "CaionTeste03",
+    bio: "Abrindo espaço para perguntas que ninguém faz em voz alta.",
+    followers: 0,
+    following: 0
   },
   {
     id: "profile_maya",
     userId: "user_maya",
-    firstName: "Maya",
+    firstName: "MayaTeste04",
     lastName: "Costa",
-    username: "maya",
+    username: "MayaTeste04",
     bio: "Respostas curtas, risadas longas.",
-    followers: 512,
-    following: 220
+    followers: 0,
+    following: 0
   }
 ];
 
@@ -49,45 +49,14 @@ export const currentUser = {
   profile: profiles[0]
 };
 
-export const messages: AnonymousMessage[] = [
-  {
-    id: "msg_1",
-    receiverUserId: "user_victor",
-    messageText: "Qual foi a melhor decisao que voce tomou esse ano?",
-    createdAt: "2026-06-15T19:28:00.000Z",
-    answer: {
-      id: "answer_1",
-      answerText: "Parar de adiar projetos pequenos. Eles puxam os grandes.",
-      createdAt: "2026-06-15T20:10:00.000Z"
-    }
-  },
-  {
-    id: "msg_2",
-    receiverUserId: "user_victor",
-    messageText: "Voce prefere receber elogio anonimo ou pergunta anonima?",
-    createdAt: "2026-06-16T09:12:00.000Z"
-  },
-  {
-    id: "msg_3",
-    receiverUserId: "user_lia",
-    messageText: "Indica uma musica para hoje?",
-    createdAt: "2026-06-14T22:05:00.000Z",
-    answer: {
-      id: "answer_3",
-      answerText: "Comeca com algo calmo e deixa o dia decidir o resto.",
-      createdAt: "2026-06-15T08:44:00.000Z"
-    }
-  }
-];
-
 export function getProfileByUsername(username: string) {
   const cleanUsername = username.replace(/^@/, "").toLowerCase();
 
-  return profiles.find((profile) => profile.username === cleanUsername);
+  return profiles.find((profile) => profile.username.toLowerCase() === cleanUsername);
 }
 
-export function getMessagesForUser(userId: string) {
-  return messages.filter((message) => message.receiverUserId === userId);
+export function getProfileByUserId(userId: string) {
+  return profiles.find((profile) => profile.userId === userId);
 }
 
 export function searchProfiles(query: string) {
@@ -100,6 +69,6 @@ export function searchProfiles(query: string) {
   return profiles.filter((profile) => {
     const fullName = `${profile.firstName} ${profile.lastName}`.toLowerCase();
 
-    return fullName.includes(normalized) || profile.username.includes(normalized);
+    return fullName.includes(normalized) || profile.username.toLowerCase().includes(normalized);
   });
 }

@@ -4,8 +4,10 @@ import Link from "next/link";
 import { Home, MessageCircle, Search, User } from "lucide-react";
 import { usePathname } from "next/navigation";
 
+import { NotificationLink } from "@/components/notification-link";
+
 const navItems = [
-  { href: "/", label: "Inicio", icon: Home },
+  { href: "/", label: "Início", icon: Home },
   { href: "/social", label: "Socializar", icon: Search },
   { href: "/messages", label: "Mensagens", icon: MessageCircle },
   { href: "/profile", label: "Perfil", icon: User }
@@ -16,7 +18,7 @@ export function BottomNav() {
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-black/10 bg-white/95 px-2 py-2 backdrop-blur md:hidden">
-      <div className="mx-auto grid max-w-md grid-cols-4">
+      <div className="mx-auto grid max-w-md grid-cols-5">
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = pathname === item.href;
@@ -34,6 +36,7 @@ export function BottomNav() {
             </Link>
           );
         })}
+        <NotificationLink compact active={pathname === "/notifications"} />
       </div>
     </nav>
   );

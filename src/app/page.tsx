@@ -13,10 +13,10 @@ export default function HomePage() {
       <section className="grid gap-4 md:grid-cols-[1.25fr_0.75fr] md:items-stretch">
         <div className="rounded-lg border border-black/10 bg-white p-5 shadow-sm">
           <p className="text-sm font-semibold text-rose-700">Bem-vindo de volta</p>
-          <h1 className="mt-2 text-3xl font-bold text-zinc-950">Seu mural anonimo esta tomando forma.</h1>
+          <h1 className="mt-2 text-3xl font-bold text-zinc-950">Seu mural anônimo está tomando forma.</h1>
           <p className="mt-3 max-w-2xl text-zinc-700">
-            Encontre perfis, envie perguntas anonimas e acompanhe respostas publicas. Esta versao usa dados de
-            exemplo ate o banco ficar pronto.
+            Encontre perfis, envie perguntas anônimas e acompanhe respostas públicas. Esta versão usa dados de
+            exemplo até o banco ficar pronto.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
@@ -30,7 +30,7 @@ export default function HomePage() {
               href={`/@${currentUser.profile.username}`}
               className="inline-flex h-11 items-center gap-2 rounded-md border border-black/10 bg-white px-4 text-sm font-medium text-zinc-800"
             >
-              Abrir meu perfil publico
+              Abrir meu perfil público
             </Link>
           </div>
         </div>
@@ -56,15 +56,15 @@ export default function HomePage() {
       <section className="space-y-3">
         <div className="flex items-end justify-between gap-3">
           <div>
-            <h2 className="text-xl font-bold text-zinc-950">Buscar usuarios</h2>
-            <p className="text-sm text-zinc-600">Digite um nome ou @ para abrir perfis publicos.</p>
+            <h2 className="text-xl font-bold text-zinc-950">Buscar usuários</h2>
+            <p className="text-sm text-zinc-600">Digite um nome ou @ para abrir perfis públicos.</p>
           </div>
         </div>
         <SearchProfiles profiles={recommended} placeholder="Buscar por @ ou nome" />
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-xl font-bold text-zinc-950">Sugestoes para conhecer</h2>
+        <h2 className="text-xl font-bold text-zinc-950">Sugestões para conhecer</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {recommended.slice(0, 3).map((profile) => (
             <ProfileCard key={profile.id} profile={profile} />
