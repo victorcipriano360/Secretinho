@@ -1,5 +1,23 @@
 import type { Profile } from "@/lib/types";
 
+export const programmerContact = {
+  name: "Victor Cipriano",
+  role: "Programador geral",
+  profileLabel: "@VictorTeste01",
+  profilePath: "/@VictorTeste01"
+} as const;
+
+export const communicationUserProfile: Profile = {
+  id: "profile_erika",
+  userId: "user_erika",
+  firstName: "Erika",
+  lastName: "Assistente virtual",
+  username: "Erika",
+  bio: `Assistente virtual do Secretinho. Contato do ${programmerContact.role}: ${programmerContact.name} (${programmerContact.profileLabel}).`,
+  followers: 0,
+  following: 0
+};
+
 export const profiles: Profile[] = [
   {
     id: "profile_victor",
@@ -40,8 +58,35 @@ export const profiles: Profile[] = [
     bio: "Respostas curtas, risadas longas.",
     followers: 0,
     following: 0
-  }
+  },
+  communicationUserProfile
 ];
+
+export const reservedUsernames = profiles.map((profile) => profile.username.toLowerCase());
+
+export function normalizeUsername(username: string) {
+  return username.trim().replace(/^@+/, "");
+}
+
+export function getUsernameValidationError(username: string, allowedProfileId?: string) {
+  const cleanUsername = normalizeUsername(username);
+
+  if (!cleanUsername) {
+    return "Escolha um @ para continuar.";
+  }
+
+  if (!/^[a-zA-Z0-9_]+$/.test(cleanUsername)) {
+    return "Use apenas letras, números ou underline, sem espaços.";
+  }
+
+  const usernameOwner = profiles.find((profile) => profile.username.toLowerCase() === cleanUsername.toLowerCase());
+
+  if (usernameOwner && usernameOwner.id !== allowedProfileId) {
+    return "Este @ já está em uso.";
+  }
+
+  return null;
+}
 
 export const currentUser = {
   id: "user_victor",

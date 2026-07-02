@@ -15,6 +15,7 @@ export type AnonymousMessage = {
   questionId: string;
   receiverUserId: string;
   requesterUserId: string;
+  isSystem?: boolean;
   messageText: string;
   createdAt: string;
   expiresAt: string;
@@ -40,7 +41,7 @@ export type MessageReaction = {
 
 export type LocalNotification = {
   id: string;
-  type: "question_received" | "question_answered" | "question_reacted";
+  type: "system_message_received" | "question_received" | "question_answered" | "question_reacted";
   title: string;
   body: string;
   createdAt: string;

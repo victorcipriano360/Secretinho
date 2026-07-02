@@ -2,12 +2,13 @@
 
 import { useCallback, useMemo, useSyncExternalStore } from "react";
 
-import { currentUser, getProfileByUserId } from "@/lib/mock-data";
+import { communicationUserProfile, currentUser, getProfileByUserId, programmerContact } from "@/lib/mock-data";
 import type { AnonymousMessage, LocalNotification, MessageReaction } from "@/lib/types";
 
 const MESSAGE_STORAGE_KEY = "secretinho.messages.v3";
 const DELETED_INITIAL_MESSAGES_KEY = "secretinho.deleted-initial-messages.v2";
 const READ_NOTIFICATIONS_KEY = "secretinho.read-notifications.v1";
+const WELCOME_MESSAGE_STORAGE_KEY = "secretinho.welcome-message.v1";
 const MESSAGE_EVENT = "secretinho:messages-changed";
 const NOTIFICATION_EVENT = "secretinho:notifications-changed";
 const QUESTION_ID_LENGTH = 10;
