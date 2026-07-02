@@ -35,6 +35,7 @@ Variaveis de ambiente na Vercel:
 
 ```bash
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:5432/secretinho?schema=public"
+DATABASE_URL_UNPOOLED="postgresql://USER:PASSWORD@HOST:5432/secretinho?schema=public"
 NEXTAUTH_SECRET="um_valor_grande_aleatorio"
 NEXTAUTH_URL="https://secretinho-scrt.vercel.app"
 ```
@@ -66,7 +67,7 @@ npm run prisma:generate
 ## Proximos passos
 
 1. Criar/conectar o banco PostgreSQL.
-2. Configurar `DATABASE_URL`, `NEXTAUTH_SECRET` e `NEXTAUTH_URL`.
+2. Configurar `DATABASE_URL`, `DATABASE_URL_UNPOOLED`, `NEXTAUTH_SECRET` e `NEXTAUTH_URL`.
 3. Aplicar a migration inicial.
 4. Trocar `src/lib/mock-data.ts` por consultas reais com Prisma.
 5. Fazer cadastro, login, follow e mensagens persistirem no banco.
