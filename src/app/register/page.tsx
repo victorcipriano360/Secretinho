@@ -38,6 +38,12 @@ export default function RegisterPage() {
           <UserRoundPlus size={16} />
           Criar conta
         </button>
+        <Link
+          href="/"
+          className="inline-flex h-11 w-full items-center justify-center rounded-md border border-black/10 bg-white px-4 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
+        >
+          Entrar sem cadastro
+        </Link>
         <p className="text-center text-sm text-zinc-600">
           Ja tem conta?{" "}
           <Link href="/login" className="font-semibold text-rose-700">

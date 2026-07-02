@@ -23,13 +23,19 @@ export default function LoginPage() {
             className="mt-2 h-11 w-full rounded-md border border-black/10 bg-zinc-50 px-3 text-sm outline-none focus:border-rose-500 focus:bg-white"
           />
         </label>
-        <button
-          type="button"
+        <Link
+          href="/"
           className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md bg-zinc-950 px-4 text-sm font-medium text-white hover:bg-zinc-800"
         >
           <LogIn size={16} />
-          Entrar
-        </button>
+          Entrar sem login
+        </Link>
+        <Link
+          href="/profile"
+          className="inline-flex h-11 w-full items-center justify-center rounded-md border border-black/10 bg-white px-4 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
+        >
+          Ver perfil de exemplo
+        </Link>
         <p className="text-center text-sm text-zinc-600">
           Nao tem conta?{" "}
           <Link href="/register" className="font-semibold text-rose-700">
